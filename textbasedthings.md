@@ -76,7 +76,15 @@ Do note that some apps include other apps or other removed background apps, such
 -
 
 - Java 8 parameters, some may be placebo (gotta weed em out)
--XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -XX:+UseFastAccessorMethods -XX:+OptimizeStringConcat -XX:+AggressiveOpts
+-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -XX:+UseFastAccessorMethods -XX:+OptimizeStringConcat -XX:+AggressiveOpts -XX:UseAVX=3 -Dgraal.MitigateSpeculativeExecutionAttacks=None -Dgraal.CompilerConfiguration=enterprise -XX:UseSSE=99 -XX:UseSSE42Intrinsics=true -XX:UseStringDeduplication=true -XX:UseAESIntrinsics=true -XX:UseAES=true
+-
+
+- Java 17 parameters, should be about the same, just a few things removed
+-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -XX:+OptimizeStringConcat -Dgraal.MitigateSpeculativeExecutionAttacks=None -Dgraal.CompilerConfiguration=enterprise -XX:UseAVX=3 -XX:AVX3Threshold=0 -XX:UseSSE42Intrinsics=true -XX:UseStringDeduplication=true -XX:UseAESIntrinsics=true -XX:UseAES=true
+-
+
+- Java options are highlighted here too, check them out!
+https://chriswhocodes.com/vm-options-explorer.html
 -
 
 - PCPP list for a budget build i may make
@@ -96,7 +104,7 @@ https://cdn.discordapp.com/attachments/1199871459070320741/1252843988214349884/P
 -
 
 - Must have grub kernel parameters (put them in /etc/default/grub if on EndeavourOS)
-mitigations=off
+mitigations=off split_lock_detect=off
 - free performance tbh
-enable_guc=3
-- Intel exclusive, it helps with gaming performance, not just power usage too !!READ!!GEN12 iGPUS AND NEWER ONLY!!READ!!
+enable_guc=3 i915.enable_fbc=1
+- Intel exclusive, it helps with gaming performance, not just power usage too !!READ!!ENABLE_GUC=3 REQUIRREESSS GEN12 iGPUS AND NEWER!!READ!!
