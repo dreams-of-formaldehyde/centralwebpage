@@ -80,7 +80,7 @@ Do note that some apps include other apps or other removed background apps, such
 -
 
 - Java 17 parameters, should be about the same, just a few things removed
--XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:-PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -XX:+OptimizeStringConcat -Dgraal.SpectrePHTBarriers=None -Dgraal.CompilerConfiguration=enterprise -XX:UseAVX=3 -XX:AVX3Threshold=0 -XX:+UseSSE42Intrinsics -XX:+UseStringDeduplication -XX:+UseAESIntrinsics -XX:+UseAES
+-XX:+UseZGC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:InitiatingHeapOccupancyPercent=15 -XX:SurvivorRatio=32 -XX:-PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -XX:+OptimizeStringConcat -Dgraal.SpectrePHTBarriers=None -Dgraal.CompilerConfiguration=enterprise -XX:UseAVX=3 -XX:AVX3Threshold=0 -XX:+UseSSE42Intrinsics -XX:+UseStringDeduplication -XX:+UseAESIntrinsics -XX:+UseAES
 -
 
 - Java options are highlighted here too, check them out!
